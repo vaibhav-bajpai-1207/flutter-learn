@@ -17,4 +17,8 @@ class NotesListManager {
   void editNode(int index, Note note) {
     notesListNotifier.notes[index] = note;
   }
+
+  void loadNotes() {
+    notesListNotifier.loadNotes();
+  }
 }

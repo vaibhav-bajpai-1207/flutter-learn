@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+// import 'package:notes_app/pages/notes_list_page/notes_list_manager.dart';
 // import 'package:notes_app/pages/note_view_page/note_view_page.dart';
 import 'package:notes_app/pages/notes_list_page/notes_list_page.dart';
 import 'package:notes_app/services/service_locator.dart';
@@ -32,12 +33,12 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(
             backgroundColor: lightBlue,
             titleTextStyle: GoogleFonts.nunito(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 1,
-              color: Colors.white
-              // backgroundColor: darkBlue,
-            ),
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 1,
+                color: Colors.white
+                // backgroundColor: darkBlue,
+                ),
             actionsIconTheme: IconThemeData(
               color: Colors.white,
             ),

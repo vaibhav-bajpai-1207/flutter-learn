@@ -5,10 +5,22 @@ import 'package:notes_app/services/service_locator.dart';
 import 'package:notes_app/utils/note_class.dart';
 import 'package:notes_app/utils/notes_list.dart';
 
-class NotesListPage extends StatelessWidget {
+class NotesListPage extends StatefulWidget {
   NotesListPage({super.key});
 
+  @override
+  State<NotesListPage> createState() => _NotesListPageState();
+}
+
+class _NotesListPageState extends State<NotesListPage> {
   var notesListManager = getIt<NotesListManager>();
+
+  @override
+  void initState() {
+    super.initState();
+    notesListManager.loadNotes();
+    // print(notesListManager.notes);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +30,12 @@ class NotesListPage extends StatelessWidget {
         actions: [
           Padding(
               padding: EdgeInsets.all(10),
-              child:
-                  IconButton(onPressed: () {}, icon: Icon(Icons.menu_rounded,color: Colors.white,))),
+              child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.menu_rounded,
+                    color: Colors.white,
+                  ))),
         ],
         actionsIconTheme: IconThemeData(),
       ),
@@ -38,13 +54,15 @@ class NotesListPage extends StatelessWidget {
             ],
           ),
           ValueListenableBuilder(
-            valueListenable: notesListManager.notesListNotifier,
-            builder: (context, value, _) {
-            return Expanded(
-                child: NotesList(
-              notes: value ?? <Note>[],
-            ));
-          })
+              valueListenable: notesListManager.notesListNotifier,
+              builder: (context, value, _) {
+                print(notesListManager.notes);
+                
+                return Expanded(
+                    child: NotesList(
+                  notes: value ?? <Note>[],
+                ));
+              })
         ],
       ),
       floatingActionButton: FloatingActionButton(
